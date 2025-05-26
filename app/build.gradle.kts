@@ -99,4 +99,7 @@ dependencies {
     // Mockk dependencies for testing
     testImplementation(libs.mockk.android)
     testImplementation(libs.mockk.agent)
+
+    // Konform dependencies
+    implementation(libs.konform.jvm)
 }

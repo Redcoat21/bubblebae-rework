@@ -6,6 +6,7 @@ coilNetworkOkhttp = "3.2.0"
 hiltAndroid = "2.56.2"
 hiltAndroidTesting = "2.56.2"
 hiltNavigationCompose = "1.2.0"
+konformJvm = "0.11.0"
 kotlin = "2.1.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -54,6 +55,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastoreCore" }
+konform-jvm = { module = "io.konform:konform-jvm", version.ref = "konformJvm" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientOkhttp" }
 mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockkAgent" }
 mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid" }
