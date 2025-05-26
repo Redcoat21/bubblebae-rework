@@ -95,4 +95,8 @@ dependencies {
 
     // Ktor dependencies
     implementation(libs.ktor.client.okhttp)
+
+    // Mockk dependencies for testing
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
 }
