@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.android.hilt)
     alias(libs.plugins.ksp)
+    kotlin("plugin.serialization") version "2.1.21"
 }
 
 android {
@@ -52,6 +53,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
+    testImplementation(libs.jetbrains.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -71,6 +73,7 @@ dependencies {
     implementation(libs.postgrest.kt)
     implementation(libs.auth.kt)
     implementation(libs.realtime.kt)
+    implementation(libs.kotlinx.coroutines.android)
 
     // Camerax dependencies
     implementation(libs.androidx.camera.camera2)

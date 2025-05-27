@@ -23,6 +23,7 @@ media3Ui = "1.7.1"
 mockkAgent = "1.14.2"
 mockkAndroid = "1.14.2"
 timber = "5.0.1"
+kotlinxCoroutinesTestVersion = "1.10.2"
 
 [libraries]
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraView" }
@@ -62,6 +63,8 @@ mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid
 postgrest-kt = { module = "io.github.jan-tennert.supabase:postgrest-kt" }
 realtime-kt = { module = "io.github.jan-tennert.supabase:realtime-kt" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+jetbrains-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTestVersion" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesTestVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
