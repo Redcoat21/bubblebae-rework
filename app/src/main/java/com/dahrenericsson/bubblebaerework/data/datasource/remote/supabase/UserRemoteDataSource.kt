@@ -13,6 +13,14 @@ class UserRemoteDataSource @Inject constructor(private val client: SupabaseClien
 //        }
 //        val res = req.decodeSingleOrNull<UserDto>()
 //        return res
-        return null
+        TODO("Not yet implemented")
+    }
+
+    suspend fun getUserByEmail(email: String): UserDto? {
+        TODO("Not yet implemented")
+    }
+
+    suspend fun getUserByUsername(username: String): UserDto? {
+        TODO("Not yet implemented")
     }
 }
