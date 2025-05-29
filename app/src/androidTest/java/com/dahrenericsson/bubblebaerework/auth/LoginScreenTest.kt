@@ -1,8 +1,13 @@
-package com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen
+package com.dahrenericsson.bubblebaerework.auth
 
-import androidx.compose.ui.test.*
+import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.hasSetTextAction
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performTextInput
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen.LoginContent
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +18,7 @@ class LoginScreenTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun loginButton_isDisabled_whenFieldsAreEmpty() {
+    fun `login button is disabled when fields are empty`() {
         // Set up the composable to test
         composeTestRule.setContent {
             LoginContent()
@@ -24,7 +29,7 @@ class LoginScreenTest {
     }
 
     @Test
-    fun loginButton_isEnabled_whenFieldsAreFilled() {
+    fun `login button is enabled when fields are filled`() {
         // Set up the composable to test
         composeTestRule.setContent {
             LoginContent()
@@ -44,4 +49,3 @@ class LoginScreenTest {
         composeTestRule.onNodeWithText("Continue").assertIsEnabled()
     }
 }
-
