@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen.LoginScreen
 import com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen.WelcomeScreen
 
 @Composable
@@ -31,6 +32,10 @@ fun NavigationComponent() {
             navigation(startDestination = Screen.Auth.Welcome.route, route = Screen.Auth.route) {
                 composable(route = Screen.Auth.Welcome.route) {
                     WelcomeScreen(navHostController = navController)
+                }
+
+                composable(route = Screen.Auth.Login.route) {
+                    LoginScreen()
                 }
             }
         }

@@ -43,6 +43,10 @@ val Typography = Typography(
     bodyMedium = TextStyle(
         fontFamily = CyGroteskFamily,
         fontSize = 13.sp
+    ),
+    labelMedium = TextStyle(
+        fontFamily = CyGroteskFamily,
+        fontSize = 14.sp
     )
     /* Other default text styles to override
     titleLarge = TextStyle(
