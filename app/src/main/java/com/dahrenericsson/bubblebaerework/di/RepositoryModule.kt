@@ -1,7 +1,20 @@
 package com.dahrenericsson.bubblebaerework.di
 
+import com.dahrenericsson.bubblebaerework.data.repository.UserRepositoryImplementation
+import com.dahrenericsson.bubblebaerework.domain.repository.UserRepository
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
+@Module
+@InstallIn(SingletonComponent::class)
 object RepositoryModule {
+
+    @Provides
+    fun provideUserRepository(
+        impl: UserRepositoryImplementation
+    ): UserRepository {
+        return impl
+    }
 }
