@@ -6,6 +6,7 @@ import com.dahrenericsson.bubblebaerework.domain.common.ErrorHandler
 import com.dahrenericsson.bubblebaerework.domain.common.ErrorType
 import com.dahrenericsson.bubblebaerework.domain.common.Result
 import com.dahrenericsson.bubblebaerework.domain.repository.AuthRepository
+import timber.log.Timber
 import javax.inject.Inject
 
 class AuthRepositoryImplementation @Inject constructor(
@@ -21,6 +22,7 @@ class AuthRepositoryImplementation @Inject constructor(
             authRemote.login(emailInput = user.email, passwordInput = password)
             return Result.Success(Unit)
         } catch (e: Exception) {
+            Timber.e(e)
             return Result.Error(
                 message = e.message ?: "An error occurred",
                 type = errorHandler.handleError(e)
@@ -37,6 +39,7 @@ class AuthRepositoryImplementation @Inject constructor(
             )
             return Result.Success(Unit)
         } catch (e: Exception) {
+            Timber.e(e)
             return Result.Error(
                 message = e.message ?: "An error occurred",
                 type = errorHandler.handleError(e)

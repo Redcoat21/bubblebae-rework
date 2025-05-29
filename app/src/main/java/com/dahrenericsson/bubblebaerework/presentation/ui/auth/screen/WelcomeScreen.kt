@@ -61,7 +61,7 @@ fun WelcomeScreen(navHostController: NavHostController) {
 }
 
 @Composable
-private fun WelcomeContent(
+fun WelcomeContent(
     onRegisterTextClick: () -> Unit = {},
     onLoginButtonClick: () -> Unit = {}
 ) {

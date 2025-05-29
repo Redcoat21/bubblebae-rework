@@ -1,6 +1,5 @@
 package com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen
 
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,15 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,34 +26,23 @@ import com.dahrenericsson.bubblebaerework.presentation.theme.BubbleBaeBackground
 import com.dahrenericsson.bubblebaerework.presentation.theme.CrimsonRose
 import com.dahrenericsson.bubblebaerework.presentation.theme.Typography
 import com.dahrenericsson.bubblebaerework.presentation.ui.auth.viewmodel.LoginViewModel
-import com.dahrenericsson.bubblebaerework.presentation.ui.common.UiState
 import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.ConfirmationButton
-import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.LoadingRing
 import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.PasswordTextField
+import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.UiStateHandler
 import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.StringTextField
 import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.TitleText
 
 @Composable
 fun LoginScreen(viewModel: LoginViewModel = hiltViewModel<LoginViewModel>()) {
-    val uiState by viewModel.uiState.collectAsState()
-    val context = LocalContext.current
-
-    // Show toast on error
-    if (uiState is UiState.Error) {
-        val errorMessage = (uiState as UiState.Error).message
-        LaunchedEffect(errorMessage) {
-            Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
-        }
-    }
-
     BubbleBaeBackground {
-        // Show loading ring if loading
-        if (uiState is UiState.Loading) {
-            LoadingRing()
+        UiStateHandler(
+            viewModel = viewModel,
+            onSuccess = {}
+        ) {
+            LoginContent(onLoginButtonClick = { username, password ->
+                viewModel.login(username = username, password = password)
+            })
         }
-        LoginContent(onLoginButtonClick = { username, password ->
-            viewModel.login(username = username, password = password)
-        })
     }
 }
 

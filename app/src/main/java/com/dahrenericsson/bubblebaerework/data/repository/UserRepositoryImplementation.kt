@@ -6,6 +6,7 @@ import com.dahrenericsson.bubblebaerework.domain.common.Result
 import com.dahrenericsson.bubblebaerework.domain.model.User
 import com.dahrenericsson.bubblebaerework.domain.model.UserIdentifier
 import com.dahrenericsson.bubblebaerework.domain.repository.UserRepository
+import timber.log.Timber
 import javax.inject.Inject
 
 class UserRepositoryImplementation @Inject constructor(
@@ -19,7 +20,10 @@ class UserRepositoryImplementation @Inject constructor(
             }
             .fold(
                 onSuccess = { Result.Success(it) },
-                onFailure = { Result.Error(it.message ?: "An error occurred", ErrorType.UNKNOWN_ERROR) }
+                onFailure = {
+                    Timber.e(it)
+                    Result.Error(it.message ?: "An error occurred", ErrorType.UNKNOWN_ERROR)
+                }
             )
     }
 
