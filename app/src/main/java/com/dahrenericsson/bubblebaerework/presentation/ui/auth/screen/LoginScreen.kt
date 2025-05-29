@@ -21,7 +21,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.dahrenericsson.bubblebaerework.R
+import com.dahrenericsson.bubblebaerework.presentation.Screen
 import com.dahrenericsson.bubblebaerework.presentation.theme.BubbleBaeBackground
 import com.dahrenericsson.bubblebaerework.presentation.theme.CrimsonRose
 import com.dahrenericsson.bubblebaerework.presentation.theme.Typography
@@ -33,11 +35,16 @@ import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.Strin
 import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.TitleText
 
 @Composable
-fun LoginScreen(viewModel: LoginViewModel = hiltViewModel<LoginViewModel>()) {
+fun LoginScreen(
+    navHostController: NavHostController,
+    viewModel: LoginViewModel = hiltViewModel<LoginViewModel>()
+) {
     BubbleBaeBackground {
         UiStateHandler(
             viewModel = viewModel,
-            onSuccess = {}
+            onSuccess = {
+                navHostController.navigate(Screen.Home.route)
+            }
         ) {
             LoginContent(onLoginButtonClick = { username, password ->
                 viewModel.login(username = username, password = password)
