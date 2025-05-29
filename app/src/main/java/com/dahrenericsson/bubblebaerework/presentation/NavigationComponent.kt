@@ -36,7 +36,7 @@ fun NavigationComponent() {
                 }
 
                 composable(route = Screen.Auth.Login.route) {
-                    LoginScreen()
+                    LoginScreen(navHostController = navController)
                 }
 
                 composable(route = Screen.Auth.Register.route) {
