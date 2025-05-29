@@ -1,4 +1,4 @@
-package com.dahrenericsson.bubblebaerework.presentation.ui.common.components
+package com.dahrenericsson.bubblebaerework.presentation.ui.common.component
 
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Text

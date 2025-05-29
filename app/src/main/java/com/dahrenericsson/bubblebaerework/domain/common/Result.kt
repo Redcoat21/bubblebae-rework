@@ -8,3 +8,13 @@ sealed class Result<out T> {
         val exception: Throwable? = null
     ) : Result<Nothing>()
 }
+
+fun <T> Result<T>.processResult(
+    onSuccess: (data: T) -> Unit,
+    onError: (message: String?, type: ErrorType, exception: Throwable?) -> Unit
+) {
+    when (this) {
+        is Result.Success -> onSuccess(data)
+        is Result.Error -> onError(message, type, exception)
+    }
+}

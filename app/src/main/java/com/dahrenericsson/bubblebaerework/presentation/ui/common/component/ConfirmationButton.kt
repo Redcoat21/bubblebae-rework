@@ -1,4 +1,4 @@
-package com.dahrenericsson.bubblebaerework.presentation.ui.common.components
+package com.dahrenericsson.bubblebaerework.presentation.ui.common.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -16,12 +16,20 @@ import com.dahrenericsson.bubblebaerework.presentation.theme.Typography
 
 @Composable
 fun ConfirmationButton(
-    onClick: () -> Unit = {}, text: String, buttonColor: ButtonColors = ButtonDefaults.buttonColors(
+    onClick: () -> Unit = {},
+    text: String,
+    enabled: Boolean = true,
+    buttonColor: ButtonColors = ButtonDefaults.buttonColors(
         containerColor = Flamingo,
         contentColor = Color.White
     )
 ) {
-    Button(onClick = onClick, colors = buttonColor, modifier = Modifier.fillMaxWidth(0.8f).padding(0.dp)) {
+    Button(
+        onClick = onClick,
+        enabled = enabled,
+        colors = buttonColor,
+        modifier = Modifier.fillMaxWidth(0.8f).padding(0.dp)
+    ) {
         Text(text = text, style = Typography.bodyMedium)
     }
 }
@@ -31,3 +39,4 @@ fun ConfirmationButton(
 fun ConfirmationButtonPreview() {
     ConfirmationButton(text = "Register")
 }
+
