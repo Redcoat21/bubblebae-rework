@@ -21,12 +21,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavHostController
 import com.dahrenericsson.bubblebaerework.R
@@ -76,18 +74,30 @@ private fun WelcomeContent(
             Box {
                 TitleText(title = "BubbleBae")
             }
-            Box {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Box {
                     ConfirmationButton(text = "Login", onClick = onLoginButtonClick)
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("Don't have an account? ", style = Typography.bodyMedium)
-                        Text(
-                            "Sign up here",
-                            color = Flamingo,
-                            style = Typography.bodyMedium,
-                            fontWeight = FontWeight.Bold,
-                        )
-                    }
+                    Image(
+                        painter = painterResource(id = R.drawable.bubblebae_light),
+                        contentDescription = "Bubblebae Icon",
+                        modifier = Modifier
+                            .size(50.dp)
+                            .offset(x = (-15).dp, y = (-12).dp)
+                            .zIndex(2f)
+                    )
+
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("Don't have an account? ", style = Typography.bodyMedium)
+                    Text(
+                        "Sign up here",
+                        color = Flamingo,
+                        style = Typography.bodyMedium,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.clickable {
+                            onRegisterTextClick()
+                        }
+                    )
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
