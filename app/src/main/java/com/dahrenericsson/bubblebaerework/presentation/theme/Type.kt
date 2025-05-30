@@ -44,6 +44,10 @@ val Typography = Typography(
         fontFamily = CyGroteskFamily,
         fontSize = 13.sp
     ),
+    bodySmall = TextStyle(
+        fontFamily = CyGroteskFamily,
+        fontSize = 7.sp
+    ),
     labelMedium = TextStyle(
         fontFamily = CyGroteskFamily,
         fontSize = 14.sp
