@@ -7,11 +7,16 @@ sealed class Screen(val route: String) {
         object Register : Screen("auth/register")
     }
 
-    object Home : Screen("home")
-    object Favorite : Screen("favorite")
+    object Home : Screen("home") {
+        object Favorite : Screen("home/favorite")
+        object Livestreams : Screen("home/livestreams")
+        object ChatList : Screen("home/chatlist")
+        object Profile : Screen("home/profile")
+    }
+
     object Livestream : Screen("livestream/{id}") {
-        fun createRoute(id: String): String {
-            return "livestream/$id"
+        fun createRoute(id: String?): String {
+            return "livestream/${id ?: "null"}"
         }
     }
 
@@ -21,7 +26,4 @@ sealed class Screen(val route: String) {
             return "chat/$id"
         }
     }
-
-    object ChatList : Screen("chatlist")
-    object Profile : Screen("profile")
 }
