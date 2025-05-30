@@ -12,6 +12,8 @@ import androidx.navigation.compose.rememberNavController
 import com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen.LoginScreen
 import com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen.RegisterScreen
 import com.dahrenericsson.bubblebaerework.presentation.ui.auth.screen.WelcomeScreen
+import com.dahrenericsson.bubblebaerework.presentation.ui.common.component.BottomNavigationBar
+import com.dahrenericsson.bubblebaerework.presentation.ui.home.screen.HomeScreen
 
 @Composable
 fun NavigationComponent() {
@@ -21,7 +23,7 @@ fun NavigationComponent() {
     Scaffold(
         bottomBar = {
             if (shouldShowBottomBar(currentRoute)) {
-//                MyBottomBar(navController)
+                BottomNavigationBar(navHostController = navController)
             }
         }
     ) { paddingValues ->
@@ -43,6 +45,15 @@ fun NavigationComponent() {
                     RegisterScreen(navHostController = navController)
                 }
             }
+
+            navigation(
+                startDestination = Screen.Home.Livestreams.route,
+                route = Screen.Home.route
+            ) {
+                composable(route = Screen.Home.Livestreams.route) {
+                    HomeScreen()
+                }
+            }
         }
     }
 
@@ -50,7 +61,7 @@ fun NavigationComponent() {
 
 private fun shouldShowBottomBar(route: String?): Boolean {
     return route in listOf(
-        Screen.Home.route, Screen.ChatList.route, Screen.Livestream.route,
-        Screen.Favorite.route
+        Screen.Home.Livestreams.route, Screen.Home.ChatList.route, Screen.Livestream.route,
+        Screen.Home.Favorite.route
     ) // screens with bottom bar
 }
