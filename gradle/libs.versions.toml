@@ -5,8 +5,6 @@ cameraView = "1.4.2"
 coilNetworkOkhttp = "3.2.0"
 datastoreCoreVersion = "1.1.7"
 datastore = "1.1.7"
-datastorePreferences = "1.1.7"
-datastorePreferencesCore = "1.1.7"
 hiltAndroid = "2.56.2"
 hiltAndroidTesting = "2.56.2"
 hiltNavigationCompose = "1.2.0"
@@ -21,12 +19,10 @@ lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
 composeBom = "2025.05.01"
 ksp = "2.1.21-2.0.1"
-datastoreCore = "1.1.7"
 media3UiCompose = "1.7.1"
 media3Ui = "1.7.1"
 mockkAgent = "1.14.2"
 mockkAndroid = "1.14.2"
-protobufJavalite = "3.25.5"
 protobufKotlinLite = "3.23.4"
 timber = "5.0.1"
 kotlinxCoroutinesTestVersion = "1.10.2"
@@ -68,7 +64,6 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockkAgent" }
 mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid" }
 postgrest-kt = { module = "io.github.jan-tennert.supabase:postgrest-kt" }
-protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobufJavalite" }
 protobuf-kotlin-lite = { module = "com.google.protobuf:protobuf-kotlin-lite", version.ref = "protobufKotlinLite" }
 realtime-kt = { module = "io.github.jan-tennert.supabase:realtime-kt" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
