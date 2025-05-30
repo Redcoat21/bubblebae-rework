@@ -2,9 +2,12 @@ package com.dahrenericsson.bubblebaerework.domain.common
 
 import io.github.jan.supabase.exceptions.NotFoundRestException
 import java.io.IOException
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
-class ErrorHandler {
+@Singleton
+class ErrorHandler @Inject constructor() {
     fun handleError(error: Throwable): ErrorType {
         return when (error) {
             is IOException -> ErrorType.NETWORK_ERROR
