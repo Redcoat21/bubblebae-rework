@@ -115,7 +115,10 @@ fun RegisterScreen(
     BubbleBaeBackground {
         UiStateHandler(
             viewModel = viewModel,
-            onSuccess = { navHostController.navigate(Screen.Auth.Login.route) }
+            onSuccess = {
+                navHostController.popBackStack(Screen.Auth.Welcome.route, inclusive = false)
+                navHostController.navigate(Screen.Auth.Login.route)
+            }
         ) {
             RegisterContent(onRegisterButtonClick = { username, password, email ->
                 viewModel.register(username, password, email)

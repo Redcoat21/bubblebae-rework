@@ -43,6 +43,7 @@ fun LoginScreen(
         UiStateHandler(
             viewModel = viewModel,
             onSuccess = {
+                navHostController.popBackStack(Screen.Auth.Welcome.route, inclusive = false)
                 navHostController.navigate(Screen.Home.route)
             }
         ) {
