@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.hilt)
     alias(libs.plugins.ksp)
     kotlin("plugin.serialization") version "2.1.21"
+    id("com.google.protobuf") version "0.9.4"
 }
 
 android {
@@ -39,6 +40,40 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+}
+
+// Protocol buffer configuration
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.23.4"
+    }
+
+    // Configure the protobuf plugin to find proto files in the correct location
+    generatedFilesBaseDir = "$projectDir/src/generated"
+
+    generateProtoTasks {
+        all().forEach { task ->
+            task.plugins {
+                create("java") {
+                    option("lite")
+                }
+                create("kotlin") {
+                    option("lite")
+                }
+            }
+
+            // Add proto source directory
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+                create("kotlin") {
+                    option("lite")
+                }
+            }
+        }
     }
 }
 
@@ -94,7 +129,12 @@ dependencies {
     implementation(libs.timber)
 
     // Datastore dependencies
+    implementation(libs.androidx.datastore)
     implementation(libs.androidx.datastore.core)
+
+    // Protocol Buffers dependencies
+    implementation(libs.protobuf.kotlin.lite)
+    implementation(libs.protobuf.javalite)
 
     // Ktor dependencies
     implementation(libs.ktor.client.okhttp)
@@ -106,3 +146,4 @@ dependencies {
     // Konform dependencies
     implementation(libs.konform.jvm)
 }
+

@@ -3,6 +3,10 @@ agp = "8.10.0"
 bom = "3.1.4"
 cameraView = "1.4.2"
 coilNetworkOkhttp = "3.2.0"
+datastoreCoreVersion = "1.1.7"
+datastore = "1.1.7"
+datastorePreferences = "1.1.7"
+datastorePreferencesCore = "1.1.7"
 hiltAndroid = "2.56.2"
 hiltAndroidTesting = "2.56.2"
 hiltNavigationCompose = "1.2.0"
@@ -22,6 +26,8 @@ media3UiCompose = "1.7.1"
 media3Ui = "1.7.1"
 mockkAgent = "1.14.2"
 mockkAndroid = "1.14.2"
+protobufJavalite = "3.25.5"
+protobufKotlinLite = "3.23.4"
 timber = "5.0.1"
 kotlinxCoroutinesTestVersion = "1.10.2"
 
@@ -31,6 +37,8 @@ androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", versi
 androidx-camera-video = { module = "androidx.camera:camera-video", version.ref = "cameraView" }
 androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "cameraView" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
+androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastoreCoreVersion" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3UiCompose" }
 androidx-media3-ui = { module = "androidx.media3:media3-ui", version.ref = "media3Ui" }
@@ -55,12 +63,13 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastoreCore" }
 konform-jvm = { module = "io.konform:konform-jvm", version.ref = "konformJvm" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientOkhttp" }
 mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockkAgent" }
 mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid" }
 postgrest-kt = { module = "io.github.jan-tennert.supabase:postgrest-kt" }
+protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobufJavalite" }
+protobuf-kotlin-lite = { module = "com.google.protobuf:protobuf-kotlin-lite", version.ref = "protobufKotlinLite" }
 realtime-kt = { module = "io.github.jan-tennert.supabase:realtime-kt" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 jetbrains-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTestVersion" }
