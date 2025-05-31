@@ -1,6 +1,7 @@
 package com.dahrenericsson.bubblebaerework.data.repository
 
 import com.dahrenericsson.bubblebaerework.data.datasource.remote.supabase.UserRemoteDataSource
+import com.dahrenericsson.bubblebaerework.domain.common.ErrorHandler
 import com.dahrenericsson.bubblebaerework.domain.common.ErrorType
 import com.dahrenericsson.bubblebaerework.domain.common.Result
 import com.dahrenericsson.bubblebaerework.domain.model.User
@@ -10,7 +11,8 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class UserRepositoryImplementation @Inject constructor(
-    private val remote: UserRemoteDataSource
+    private val remote: UserRemoteDataSource,
+    private val errorHandler: ErrorHandler
 ) : UserRepository {
 
     override suspend fun getUser(identifier: UserIdentifier): Result<User> {
@@ -22,7 +24,7 @@ class UserRepositoryImplementation @Inject constructor(
                 onSuccess = { Result.Success(it) },
                 onFailure = {
                     Timber.e(it)
-                    Result.Error(it.message ?: "An error occurred", ErrorType.UNKNOWN_ERROR)
+                    Result.Error(it.message ?: "An error occurred", errorHandler.handleError(it))
                 }
             )
     }

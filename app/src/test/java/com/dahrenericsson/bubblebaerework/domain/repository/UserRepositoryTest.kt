@@ -26,7 +26,7 @@ class UserRepositoryTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        userRepository = UserRepositoryImplementation(userRemoteDataSource)
+        userRepository = UserRepositoryImplementation(userRemoteDataSource, mockk(relaxed = true))
     }
 
     @Test
